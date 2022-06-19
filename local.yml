@@ -4,5 +4,6 @@
   tasks:
   become: yes
   - name: change user shell to zsh
-    user: zyzyx
-    shell: /bin/zsh
+    user: 
+      name: zyzyx
+      shell: /bin/zsh
