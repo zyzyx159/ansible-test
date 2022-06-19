@@ -2,7 +2,7 @@
 
 - hosts: all
   tasks:
+  become: yes
   - name: change user shell to zsh
-    become: yes
     user: zyzyx
     shell: /bin/zsh
