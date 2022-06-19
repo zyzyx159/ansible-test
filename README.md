@@ -1,2 +1,2 @@
 # ansible-test
-I need a repository that I can build one time/one off playbooks in for ansible pull
+I needed a repository that I could build one time/one off playbooks in for ansible pull. This is prone to change and not for production.
