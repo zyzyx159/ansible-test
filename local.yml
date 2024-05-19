@@ -3,7 +3,7 @@
   connection: local
   vars:
     ansible_user: zyzyx
-    ssh_key_filename: id_rsa_myproject
+    ssh_key_filename: ed25519_key
   vars_prompt:
     - name: "ssh_passphrase"
       prompt: "Enter the passphrase for the SSH key"
@@ -13,3 +13,7 @@
         path: /home/zyzyx/.ssh/{{ssh_key_filename}}
         type: ed25519
         comment: Dstellm@gmail.com
+  task:
+    - name: GHPush echo
+      ansible.builtin.debug:
+      msg: "ghpush {{ lookup('ansible.builtin.file', '/home/zyzyx/.ssh/ed25519_key.pub') }} zyzyx@{{ansible_hostname}}"
