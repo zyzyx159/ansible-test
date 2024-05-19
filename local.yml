@@ -15,4 +15,4 @@
         comment: Dstellm@gmail.com
     - name: GHPush echo
       ansible.builtin.debug:
-      msg: "ghpush {{ lookup('ansible.builtin.file', '/home/zyzyx/.ssh/ed25519_key.pub') }} zyzyx@{{ansible_hostname}}"
+        msg: "ghpush {{ lookup('ansible.builtin.file', '/home/zyzyx/.ssh/ed25519_key.pub') }} zyzyx@{{ansible_hostname}}"
