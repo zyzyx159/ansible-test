@@ -10,6 +10,6 @@
   tasks:
     - name: generate SSH key "{{ssh_key_filename}}"
       community.crypto.openssh_keypair:
-        path: .ssh/{{ssh_key_filename}}
+        path: /home/zyzyx/.ssh/{{ssh_key_filename}}
         type: ed25519
         comment: Dstellm@gmail.com
