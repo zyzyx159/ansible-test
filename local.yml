@@ -1,18 +1,16 @@
-- name: generate SSH key
-  hosts: 127.0.0.1
-  connection: local
-  vars:
-    ansible_user: zyzyx
-    ssh_key_filename: ed25519_key
+---
+- hosts: all
   vars_prompt:
-    - name: "ssh_passphrase"
-      prompt: "Enter the passphrase for the SSH key"
+
+    - name: username
+      prompt: What is your username?
+      private: false
+
+    - name: password
+      prompt: What is your password?
+
   tasks:
-    - name: generate SSH key "{{ssh_key_filename}}"
-      community.crypto.openssh_keypair:
-        path: /home/zyzyx/.ssh/{{ssh_key_filename}}
-        type: ed25519
-        comment: Dstellm@gmail.com
-    - name: GHPush echo
+
+    - name: Print a message
       ansible.builtin.debug:
-        msg: "ghpush {{ lookup('ansible.builtin.file', '/home/zyzyx/.ssh/ed25519_key.pub') }} zyzyx@{{ansible_hostname}}"
+        msg: 'Logging in as {{ username }}'
